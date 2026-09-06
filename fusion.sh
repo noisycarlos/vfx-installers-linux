@@ -44,6 +44,12 @@ else
   exit 1
 fi
 
+if command -v dnf &>/dev/null; then
+  sudo dnf install fuse fuse-libs -y
+elif command -v apt &>/dev/null; then
+  sudo apt install libfuse2 -y
+fi
+
 version=$(echo ${installer_path} | sed -n 's/.\/Blackmagic_Fusion_Studio_Linux_\([0-9.]*\)_installer.run/\1/p')
 echo "--- Installing ${app_name} v${version}..."
 sudo SKIP_PACKAGE_CHECK=1 ${installer_path} -i -y
