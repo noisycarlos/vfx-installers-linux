@@ -17,6 +17,8 @@ Download the Linux installers for the apps you wish to install from their respec
 - [Nuke](https://www.foundry.com/products/nuke/download)
 - [Resolve](https://www.blackmagicdesign.com/products/davinciresolve)
 - [Fusion](https://www.blackmagicdesign.com/products/fusion)
+- [Mocha](https://borisfx.com/downloads/?product=mocha&os=linux)
+- [Neat Video](https://www.neatvideo.com/download)
 
 ### Make sure that: ##
 - The installers are in your **Downloads** folder (most browsers place it there by default)
@@ -31,29 +33,11 @@ bash nuke.sh ~/installers/
 ### Step 3 ###
 If you wish to install all the programs at once, run the install-all.sh script (it will only install the apps for which you placed an installer). Otherwise, use the individual script for each application.
 
-If you're new to Linux, there are a few ways to run the script. Probably the easiest is to right-click on the directory with the scripts and installers, then select 'Open in Terminal'.
+If you're new to Linux, there are a few ways to run the script. Probably the easiest is to right-click on the directory with the scripts and installers, then select 'Open in Terminal' or 'Open in Console'.
 
-Once you're in the terminal, type bash followed by the name of the script you want to . For example:
+Once you're in the terminal, type bash followed by the name of the script you want to install. For example:
 
+``` bash nuke.sh ```
+
+There's an additional script to install all, which will run all the installers. It will automatically detect if the installer is downloaded and if it's not, it will skip it. So you can download the ones you need and run the command below to install all the downloaded programs:
 ``` bash install-all.sh ```
-
-## IMPORTANT ##
-If you get the following error:
-
-```AppImages require FUSE to run. ```
-
-You need to install FUSE with the following command:
-
-``` sudo apt install libfuse2 -y ```
-
-
-The reason this is not done automatically in the script is because on one occasion installing FUSE misconfigured my desktop environment. I've installed it many times though, and only had that issue once. But I don't want someone to run the script, get their system bonked and not know what happened.
-
-My system was fixed with the commands below, but just in case do a backup before you install FUSE:
-
-```
-sudo apt purge gdm3
-sudo apt install gdm3
-```
-
-(solution from [askubuntu.com](https://askubuntu.com/questions/1525899/cannot-login-to-gui-on-ubuntu-24-04-after-installing-fuse) )
