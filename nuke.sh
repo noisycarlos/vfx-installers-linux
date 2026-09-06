@@ -89,4 +89,6 @@ Exec=${nuke_install_basepath}/${installation_dir_name}/Nuke${vnum} ${value}
 Icon=${nuke_install_basepath}/nuke.png" >${shortcut_filename}.desktop
 done
 
+sudo ln -s ${nuke_install_basepath}/${installation_dir_name}/Nuke${vnum} /usr/bin/nuke
+
 echo "--- Finished installing ${app_name}"
